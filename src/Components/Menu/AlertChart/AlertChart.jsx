@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io();
+const socket = io("https://menu-didactico.up.railway.app");
 
 export default function AlertChart() {
 	const location = useLocation();

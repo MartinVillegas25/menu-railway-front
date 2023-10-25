@@ -6,7 +6,7 @@ import { deletePedido, getPedidos } from '../../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
-const socket = io();
+const socket = io("https://menu-didactico.up.railway.app");
 export default function ClientHome() {
 	const [popUp, setPopUp] = useState(false);
 	const [selectedPedidoId, setSelectedPedidoId] = useState(null);

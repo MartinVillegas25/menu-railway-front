@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlanToMenu } from '../../../redux/actions';
 
-const socket = io();
+const socket = io("https://menu-didactico.up.railway.app");
 
 export default function Pay() {
 	const [nombre, setNombre] = useState('');
