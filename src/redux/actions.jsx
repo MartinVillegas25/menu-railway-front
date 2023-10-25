@@ -47,7 +47,7 @@ export function createUser(payload) {
 	return async function (dispatch) {
 		try {
 			const info = await axios.post(
-				'http://localhost:3000/subscription',
+				'https://menu-didactico.up.railway.app/subscription',
 				payload
 			);
 			console.log('entro en create');
@@ -68,7 +68,7 @@ export function createAdmin(payload) {
 		console.log('creando admin');
 		try {
 			const info = await axios.post(
-				'http://localhost:3000/admin-boss',
+				'https://menu-didactico.up.railway.app/admin-boss',
 				payload
 			);
 
@@ -86,7 +86,7 @@ export function createAdmin(payload) {
 export function logUser(payload) {
 	return async function (dispatch) {
 		try {
-			const info = await axios.post('http://localhost:3000/login', payload);
+			const info = await axios.post('https://menu-didactico.up.railway.app/login', payload);
 
 			return dispatch({
 				type: LOG_USER,
@@ -109,7 +109,7 @@ export function logOutUser() {
 				'x-token': token
 			};
 			axios
-				.get('http://localhost:3000/logout', {
+				.get('https://menu-didactico.up.railway.app/logout', {
 					headers
 				})
 				.then((response) => {
@@ -128,7 +128,7 @@ export function logOutUser() {
 export function getPlans() {
 	return async function (dispatch) {
 		try {
-			const info = await axios.get('http://localhost:3000/planes');
+			const info = await axios.get('https://menu-didactico.up.railway.app/planes');
 			return dispatch({
 				type: GET_PLANS,
 				payload: info.data
@@ -144,7 +144,7 @@ export function getPlans() {
 export function getAllClients() {
 	return async function (dispatch) {
 		try {
-			const info = await axios.get('http://localhost:3000/mostrar');
+			const info = await axios.get('https://menu-didactico.up.railway.app/mostrar');
 			return dispatch({
 				type: GET_ALL_CLIENTS,
 				payload: info.data
@@ -160,7 +160,7 @@ export function getAllClients() {
 export function getClientsToConfirm() {
 	return async function (dispatch) {
 		try {
-			const info = await axios.get('http://localhost:3000/confirmar');
+			const info = await axios.get('https://menu-didactico.up.railway.app/confirmar');
 			return dispatch({
 				type: GET_CLIENTS_TO_CONFIRM,
 				payload: info.data
@@ -175,7 +175,7 @@ export function getClientsToConfirm() {
 export function getClientsToConfirmPlan() {
 	return async function (dispatch) {
 		try {
-			const info = await axios.get('http://localhost:3000/confimar-plan');
+			const info = await axios.get('https://menu-didactico.up.railway.app/confimar-plan');
 			return dispatch({
 				type: GET_CLIENTS_TO_CONFIRM_PLAN,
 				payload: info.data
@@ -196,7 +196,7 @@ export function confirmUserPayment(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/admin/confirmar-pago', payload, {
+				.put('https://menu-didactico.up.railway.app/admin/confirmar-pago', payload, {
 					headers
 				})
 				.then((response) => {
@@ -221,7 +221,7 @@ export function confirmUserNewPlan(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/admin/confirmar-plan', payload, {
+				.put('https://menu-didactico.up.railway.app/admin/confirmar-plan', payload, {
 					headers
 				})
 				.then((response) => {
@@ -241,7 +241,7 @@ export function confirmUserNewPlan(payload) {
 export function getSuspendedClients() {
 	return async function (dispatch) {
 		try {
-			const info = await axios.post('http://localhost:3000/status');
+			const info = await axios.post('https://menu-didactico.up.railway.app/status');
 			return dispatch({
 				type: GET_SUSPENDED_CLIENTS,
 				payload: info.data
@@ -256,7 +256,7 @@ export function getSuspendedClients() {
 export function suspendUser(payload) {
 	return async function (dispatch) {
 		try {
-			const info = await axios.put('http://localhost:3000/suspender', payload);
+			const info = await axios.put('https://menu-didactico.up.railway.app/suspender', payload);
 
 			return dispatch({
 				type: SUSPEND_USER,
@@ -272,7 +272,7 @@ export function suspendUser(payload) {
 export function activateUser(payload) {
 	return async function (dispatch) {
 		try {
-			const info = await axios.put('http://localhost:3000/activar', payload);
+			const info = await axios.put('https://menu-didactico.up.railway.app/activar', payload);
 
 			return dispatch({
 				type: ACTIVATE_USER,
@@ -293,7 +293,7 @@ export function validateAdmin() {
 			const headers = {
 				'x-token': token
 			};
-			axios.get('http://localhost:3000/admin', { headers }).then((response) => {
+			axios.get('https://menu-didactico.up.railway.app/admin', { headers }).then((response) => {
 				return dispatch({
 					type: VALIDATE_ADMIN,
 					payload: response.data
@@ -315,7 +315,7 @@ export function validateUser() {
 				'x-token': token
 			};
 			axios
-				.get('http://localhost:3000/dashboard', { headers })
+				.get('https://menu-didactico.up.railway.app/dashboard', { headers })
 				.then((response) => {
 					return dispatch({
 						type: VALIDATE_USER,
@@ -332,7 +332,7 @@ export function validateUser() {
 export function planPrice(payload) {
 	return async function (dispatch) {
 		try {
-			const info = await axios.put('http://localhost:3000/valores', payload);
+			const info = await axios.put('https://menu-didactico.up.railway.app/valores', payload);
 
 			return dispatch({
 				type: PLAN_PRICE,
@@ -355,7 +355,7 @@ export function modifData(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/actualizar', payload, {
+				.put('https://menu-didactico.up.railway.app/actualizar', payload, {
 					headers
 				})
 				.then((response) => {
@@ -381,7 +381,7 @@ export function changeAdminImg(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/actualizar-imagen', payload, {
+				.put('https://menu-didactico.up.railway.app/actualizar-imagen', payload, {
 					headers
 				})
 				.then((response) => {
@@ -409,7 +409,7 @@ export function getLocalData(email) {
 				'x-token': token
 			};
 			axios
-				.get(`http://localhost:3000/dashboard/config?email=${email}`, {
+				.get(`https://menu-didactico.up.railway.app/dashboard/config?email=${email}`, {
 					headers
 				})
 				.then((response) => {
@@ -434,7 +434,7 @@ export function changeLocalImg(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/actualizar-img', payload, {
+				.put('https://menu-didactico.up.railway.app/actualizar-img', payload, {
 					headers
 				})
 				.then((response) => {
@@ -461,7 +461,7 @@ export function createCategory(payload) {
 				'x-token': token
 			};
 			axios
-				.post('http://localhost:3000/dashboard/newcategoria', payload, {
+				.post('https://menu-didactico.up.railway.app/dashboard/newcategoria', payload, {
 					headers
 				})
 				.then((response) => {
@@ -485,7 +485,7 @@ export function createSubCategory(payload) {
 				'x-token': token
 			};
 			axios
-				.post('http://localhost:3000/dashboard/newsubcategoria', payload, {
+				.post('https://menu-didactico.up.railway.app/dashboard/newsubcategoria', payload, {
 					headers
 				})
 				.then((response) => {
@@ -510,7 +510,7 @@ export function changePlan(payload) {
 				'x-token': token
 			};
 			axios
-				.put('http://localhost:3000/dashboard/actulizar-plan', payload, {
+				.put('https://menu-didactico.up.railway.app/dashboard/actulizar-plan', payload, {
 					headers
 				})
 				.then((response) => {
@@ -536,7 +536,7 @@ export function getCategories() {
 				'x-token': token
 			};
 			axios
-				.get('http://localhost:3000/dashboard/categorias', {
+				.get('https://menu-didactico.up.railway.app/dashboard/categorias', {
 					headers
 				})
 				.then((response) => {
@@ -562,7 +562,7 @@ export function getSubCategories(payload) {
 			};
 			axios
 				.get(
-					`http://localhost:3000/dashboard/subcategorias?categoria=${payload}`,
+					`https://menu-didactico.up.railway.app/dashboard/subcategorias?categoria=${payload}`,
 					{
 						headers
 					}
@@ -592,7 +592,7 @@ export function createProduct(payload) {
 				'x-token': token
 			};
 			axios
-				.post(`http://localhost:3000/dashboard/items`, payload, {
+				.post(`https://menu-didactico.up.railway.app/dashboard/items`, payload, {
 					headers
 				})
 
@@ -614,7 +614,7 @@ export function deleteCategory(categoria, email) {
 		try {
 			axios
 				.delete(
-					`http://localhost:3000/dashboard/items/borrar-categoria?email=${email}&categoria=${categoria}`
+					`https://menu-didactico.up.railway.app/dashboard/items/borrar-categoria?email=${email}&categoria=${categoria}`
 
 					// { headers }
 				)
@@ -636,7 +636,7 @@ export function deleteSubCategory(subcategoria, categoria, email) {
 		try {
 			axios
 				.delete(
-					`http://localhost:3000/dashboard/items/borrar-subcategoria?email=${email}&categoria=${categoria}&subcategoria=${subcategoria}`
+					`https://menu-didactico.up.railway.app/dashboard/items/borrar-subcategoria?email=${email}&categoria=${categoria}&subcategoria=${subcategoria}`
 				)
 				.then((response) => {
 					console.log('aca');
@@ -661,7 +661,7 @@ export function deleteProduct(payload) {
 				'x-token': token
 			};
 			axios
-				.delete(`http://localhost:3000/dashboard/items?id=${payload}`, {
+				.delete(`https://menu-didactico.up.railway.app/dashboard/items?id=${payload}`, {
 					headers
 				})
 
@@ -689,7 +689,7 @@ export function modifyProduct(id, payload) {
 				'x-token': token
 			};
 			axios
-				.put(`http://localhost:3000/dashboard/items?id=${id}`, payload, {
+				.put(`https://menu-didactico.up.railway.app/dashboard/items?id=${id}`, payload, {
 					headers
 				})
 				.then((response) => {
@@ -716,7 +716,7 @@ export function getPedidos() {
 				'x-token': token
 			};
 			axios
-				.get(`http://localhost:3000/dashboard/pedidos`, {
+				.get(`https://menu-didactico.up.railway.app/dashboard/pedidos`, {
 					headers
 				})
 				.then((response) => {
@@ -737,7 +737,7 @@ export function getProducts(payload) {
 	return async function (dispatch) {
 		try {
 			axios
-				.get(`http://localhost:3000/dashboard/items?email=${payload}`)
+				.get(`https://menu-didactico.up.railway.app/dashboard/items?email=${payload}`)
 				.then((response) => {
 					return dispatch({
 						type: GET_PRODUCTS,
@@ -754,7 +754,7 @@ export function getMenuCategories(payload) {
 	return async function (dispatch) {
 		try {
 			axios
-				.get(`http://localhost:3000/menu/categorias?email=${payload}`)
+				.get(`https://menu-didactico.up.railway.app/menu/categorias?email=${payload}`)
 				.then((response) => {
 					return dispatch({
 						type: GET_MENU_CATEGORIES,
@@ -789,7 +789,7 @@ export function ordering(email, mesa, payload) {
 		try {
 			axios
 				.post(
-					`http://localhost:3000/pedido?email=${email}&mesa=${mesa}`,
+					`https://menu-didactico.up.railway.app/pedido?email=${email}&mesa=${mesa}`,
 					payload
 				)
 				.then((response) => {
@@ -816,7 +816,7 @@ export function deletePedido(mesa, nombre) {
 			};
 			axios
 				.delete(
-					`http://localhost:3000/liberar-pedido?mesa=${mesa}&nombre=${nombre}`,
+					`https://menu-didactico.up.railway.app/liberar-pedido?mesa=${mesa}&nombre=${nombre}`,
 					{
 						headers
 					}
@@ -838,7 +838,7 @@ export function getPlanToMenu(email) {
 	return async function (dispatch) {
 		try {
 			axios
-				.get(`http://localhost:3000/menu?email=${email}`)
+				.get(`https://menu-didactico.up.railway.app/menu?email=${email}`)
 				.then((response) => {
 					return dispatch({
 						type: GET_PLAN_TO_MENU,
