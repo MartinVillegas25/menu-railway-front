@@ -9,7 +9,7 @@ export function useSocket() {
 }
 
 export function SocketProvider({ children }) {
-	const socket = io();
+	const socket = io("https://menu-didactico.up.railway.app");
 
 	useEffect(() => {
 		return () => {
